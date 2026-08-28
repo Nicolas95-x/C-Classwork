@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ejercicios de CSS - Flexbox y Responsive Design</title>
+<style>
+
+  /* ============================================
+     RESET BÁSICO
+     ============================================ */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* así el padding y el border no aumentan el ancho total */
+  }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f2f4f7;
+    color: #1f2933;
+    padding: 40px 20px;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    margin: 40px 0 16px;
+    border-left: 5px solid #3b82f6;
+    padding-left: 12px;
+  }
+
+  .intro {
+    text-align: center;
+    color: #52606d;
+    margin-bottom: 20px;
+  }
+
+  section {
+    max-width: 1000px;
+    margin: 0 auto 60px;
+  }
+
+  /* ============================================
+     EJERCICIO 1 y 2: FLEXBOX + MEDIA QUERY
+     ============================================
+     - .contenedor-tarjetas usa flexbox para poner
+       las 3 tarjetas en fila.
+     - Cada .tarjeta tiene un color de fondo distinto.
+     - La media query al final apila las tarjetas en
+       columna y las hace ocupar el 100% del ancho
+       cuando la pantalla es menor a 768px.
+  */
+
+  .contenedor-tarjetas {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .tarjeta {
+    flex: 1; /* las 3 tarjetas se reparten el espacio disponible por igual */
+  }
+
+  /* ============================================
+     EJERCICIO 3: BOX MODEL + SOMBRAS
+     ============================================
+     - padding: espacio interno entre el borde y el contenido
+     - border: borde visible de la tarjeta
+     - margin: se usa el gap del contenedor flex (equivalente)
+     - box-shadow: sombra para dar sensación de profundidad
+  */
+
+  .tarjeta {
+    padding: 24px 20px;         /* padding del box model */
+    border: 2px solid rgba(0,0,0,0.08); /* border del box model */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* sombra para profundidad */
+    color: #ffffff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .tarjeta:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+  }
+
+  .tarjeta h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+  }
+
+  .tarjeta p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    opacity: 0.95;
+  }
+
+  /* Colores de fondo diferentes para cada tarjeta */
+  .tarjeta--uno   { background-color: #3b82f6; }
+  .tarjeta--dos   { background-color: #16a34a; }
+  .tarjeta--tres  { background-color: #f97316; }
+
+  /* ============================================
+     MEDIA QUERY (Ejercicio 2)
+     ============================================
+     En pantallas menores a 768px las tarjetas se
+     apilan verticalmente y ocupan el 100% del ancho.
+  */
+  @media (max-width: 768px) {
+    .contenedor-tarjetas {
+      flex-direction: column; /* apila las tarjetas verticalmente */
+    }
+
+    .tarjeta {
+      width: 100%; /* cada tarjeta ocupa todo el ancho disponible */
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <h1>Ejercicios de CSS: Flexbox &amp; Responsive Design</h1>
+  <p class="intro">Redimensiona la ventana (o mira desde el móvil) para ver el efecto de la media query.</p>
+
+  <section>
+    <h2>Ejercicio 1 y 2: Flexbox + Media Query</h2>
+    <div class="contenedor-tarjetas">
+
+      <div class="tarjeta tarjeta--uno">
+        <h3>Tarjeta 1</h3>
+        <p>Esta es la primera tarjeta. Usa Flexbox para colocarse en fila junto a las demás en pantallas grandes.</p>
+      </div>
+
+      <div class="tarjeta tarjeta--dos">
+        <h3>Tarjeta 2</h3>
+        <p>Esta es la segunda tarjeta, con un color de fondo diferente para distinguirla de las otras.</p>
+      </div>
+
+      <div class="tarjeta tarjeta--tres">
+        <h3>Tarjeta 3</h3>
+        <p>Esta es la tercera tarjeta. En móvil, las tres se apilan verticalmente y ocupan el 100% del ancho.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <h2>Ejercicio 3: Box Model y Sombras</h2>
+    <p>
+      Cada tarjeta de arriba ya aplica <strong>box model</strong> completo:
+      <code>padding</code> interno, <code>border</code> sutil y <code>margin</code>
+      (mediante el <code>gap</code> del contenedor flex), además de
+      <code>box-shadow</code> para dar sensación de profundidad. Pasa el
+      cursor sobre una tarjeta para ver cómo la sombra reacciona.
+    </p>
+  </section>
+
+</body>
+</html>
