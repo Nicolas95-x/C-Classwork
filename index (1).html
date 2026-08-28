@@ -12,7 +12,7 @@
   * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* así el padding y el border no aumentan el ancho total */
+    box-sizing: border-box; 
   }
 
   body {
@@ -44,41 +44,12 @@
     margin: 0 auto 60px;
   }
 
-  /* ============================================
-     EJERCICIO 1 y 2: FLEXBOX + MEDIA QUERY
-     ============================================
-     - .contenedor-tarjetas usa flexbox para poner
-       las 3 tarjetas en fila.
-     - Cada .tarjeta tiene un color de fondo distinto.
-     - La media query al final apila las tarjetas en
-       columna y las hace ocupar el 100% del ancho
-       cuando la pantalla es menor a 768px.
-  */
-
-  .contenedor-tarjetas {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
 
   .tarjeta {
-    flex: 1; /* las 3 tarjetas se reparten el espacio disponible por igual */
-  }
-
-  /* ============================================
-     EJERCICIO 3: BOX MODEL + SOMBRAS
-     ============================================
-     - padding: espacio interno entre el borde y el contenido
-     - border: borde visible de la tarjeta
-     - margin: se usa el gap del contenedor flex (equivalente)
-     - box-shadow: sombra para dar sensación de profundidad
-  */
-
-  .tarjeta {
-    padding: 24px 20px;         /* padding del box model */
-    border: 2px solid rgba(0,0,0,0.08); /* border del box model */
+    padding: 24px 20px;       
+    border: 2px solid rgba(0,0,0,0.08); 
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* sombra para profundidad */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
     color: #ffffff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
@@ -107,16 +78,8 @@
   /* ============================================
      MEDIA QUERY (Ejercicio 2)
      ============================================
-     En pantallas menores a 768px las tarjetas se
-     apilan verticalmente y ocupan el 100% del ancho.
-  */
-  @media (max-width: 768px) {
-    .contenedor-tarjetas {
-      flex-direction: column; /* apila las tarjetas verticalmente */
-    }
-
-    .tarjeta {
-      width: 100%; /* cada tarjeta ocupa todo el ancho disponible */
+ 
+   */
     }
   }
 
